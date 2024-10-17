@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -44,6 +45,14 @@ public class Angebot {
     public void setFlugnummer(String flugnummer) {
         Objects.requireNonNull(flugnummer);
         this.flugnummer = flugnummer;
+    }
+
+    public void anzeigen()
+    {
+        if (getFlugdatum().getMonth() == Month.JANUARY)
+        {
+
+        }
     }
 }
 
