@@ -47,11 +47,18 @@ public class Angebot {
         this.flugnummer = flugnummer;
     }
 
+    @Override
+    public String toString() {
+        return "Angebot" + " Flugnummer: " + getFlugnummer() + " Flugdatum: "
+                + getFlugdatum() + " Flugpreis: " + getPreis();
+    }
+
     public void anzeigen()
     {
+        Angebot angebot = new Angebot(preis, flugdatum, flugnummer);
         if (getFlugdatum().getMonth() == Month.JANUARY)
         {
-
+            System.out.println(angebot.toString());
         }
     }
 }
