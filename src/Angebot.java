@@ -61,17 +61,18 @@ public class Angebot {
 
     public void setRabattstrategie()
     {
-        if (getFlugdatum().getMonth() == Month.JANUARY)
+        if (getFlugdatum().getMonth() == Month.JANUARY || getFlugdatum().getMonth() == Month.APRIL ||
+                getFlugdatum().getMonth() == Month.OCTOBER)
         {
             this.rabattstrategie = new MaxiDiscount("Maxi Discount");
         }
-        if (getFlugdatum().getMonth() == Month.APRIL)
+        if (getFlugdatum().getMonth() == Month.FEBRUARY || getFlugdatum().getMonth() == Month.MARCH)
         {
-            this.rabattstrategie = new MaxiDiscount("Maxi Discount");
+            this.rabattstrategie = new MidiDiscount("Midi Discount");
         }
-        if (getFlugdatum().getMonth() == Month.OCTOBER)
+        else
         {
-            this.rabattstrategie = new MaxiDiscount("Maxi Discount");
+            this.rabattstrategie = new ZeroDiscount("Zero Discount");
         }
 
     }
