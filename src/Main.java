@@ -4,8 +4,9 @@ public class Main {
     public static void main(String[] args) {
 
         Angebot angebot =
-                new Angebot(20, LocalDate.of(2000, 1, 17), "001");
+                new Angebot(100, LocalDate.of(2024, 4, 17), "001");
 
-        angebot.anzeigen();
+        System.out.println(angebot);
+        System.out.println("Redurierter Preis des Fluges: " + angebot.getReduzierterPreis());
     }
 }

@@ -18,5 +18,5 @@ public abstract class Rabattstrategie {
         this.bezeichnung = bezeichnung;
     }
 
-    public abstract void getReduzierterPreis();
+    public abstract double getReduzierterPreis(double regulaerPreis);
 }

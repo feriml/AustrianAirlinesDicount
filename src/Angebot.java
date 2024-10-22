@@ -1,7 +1,6 @@
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Objects;
-import java.util.UUID;
 
 public class Angebot {
 
@@ -11,10 +10,13 @@ public class Angebot {
 
     private String flugnummer;
 
+    private Rabattstrategie rabattstrategie;
+
     public Angebot(double preis, LocalDate flugdatum, String flugnummer) {
         setPreis(preis);
         setFlugdatum(flugdatum);
         setFlugnummer(flugnummer);
+        setRabattstrategie();
     }
 
     public double getPreis() {
@@ -27,6 +29,10 @@ public class Angebot {
 
     public String getFlugnummer() {
         return flugnummer;
+    }
+
+    public double getReduzierterPreis(){
+        return this.rabattstrategie.getReduzierterPreis(this.preis);
     }
 
     public void setPreis(double preis) {
@@ -53,13 +59,21 @@ public class Angebot {
                 + getFlugdatum() + " Flugpreis: " + getPreis();
     }
 
-    public void anzeigen()
+    public void setRabattstrategie()
     {
-        Angebot angebot = new Angebot(preis, flugdatum, flugnummer);
         if (getFlugdatum().getMonth() == Month.JANUARY)
         {
-            System.out.println(angebot.toString());
+            this.rabattstrategie = new MaxiDiscount("Maxi Discount");
         }
+        if (getFlugdatum().getMonth() == Month.APRIL)
+        {
+            this.rabattstrategie = new MaxiDiscount("Maxi Discount");
+        }
+        if (getFlugdatum().getMonth() == Month.OCTOBER)
+        {
+            this.rabattstrategie = new MaxiDiscount("Maxi Discount");
+        }
+
     }
 }
 
