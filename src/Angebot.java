@@ -66,7 +66,7 @@ public class Angebot {
         {
             this.rabattstrategie = new MaxiDiscount("Maxi Discount");
         }
-        if (getFlugdatum().getMonth() == Month.FEBRUARY || getFlugdatum().getMonth() == Month.MARCH)
+        else if (getFlugdatum().getMonth() == Month.FEBRUARY || getFlugdatum().getMonth() == Month.MARCH)
         {
             this.rabattstrategie = new MidiDiscount("Midi Discount");
         }
